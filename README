@@ -1,0 +1,15 @@
+# What is it
+implement plain protocol stack in Rust
+
+# Why protocol stack
+thread programming and mutex control is needed to do this project,
+which is important in system engineering
+
+# Reference to do this project
+- [lwIP](http://savannah.nongnu.org/projects/lwip/)
+- [microps](https://github.com/pandax381/microps)(especially for tap engineering)
+
+# Roadmap?
+- network interface and protocol stack initialisation
+- tap devide driver engineering
+- tcp protocol stack
