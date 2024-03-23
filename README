@@ -1,15 +1,19 @@
-# What is it
-implement plain protocol stack in Rust
+# What is it?
+implement plain user-land protocol stack in Rust.
 
-# Why protocol stack
+# Why protocol stack?
 thread programming and mutex control is needed to do this project,
-which is important in system engineering
+which is important in system engineering.
 
-# Reference to do this project
+# Prerequisite?
+- Ubuntu 20.04(Will test in Ubuntu 22.04)
+
+# Reference to do this project?
 - [lwIP](http://savannah.nongnu.org/projects/lwip/)
 - [microps](https://github.com/pandax381/microps)(especially for tap engineering)
 
 # Roadmap?
-- network interface and protocol stack initialisation
-- tap devide driver engineering
-- tcp protocol stack
+- network interface and protocol stack initialisation(only UDP and TCP?).
+- tap devide driver engineering.
+- set up data structures and functions to utilise this protocol stack.
+- implement simple tcp server program and tcp client program.
