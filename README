@@ -1,4 +1,4 @@
-# What is it?
+# "protocol_in_stack"?
 implement plain user-land protocol stack in Rust.
 
 # Why protocol stack?
@@ -15,5 +15,5 @@ which is important in system engineering.
 # Roadmap?
 - network interface and protocol stack initialisation(only UDP and TCP?).
 - tap devide driver engineering.
-- set up data structures and functions to utilise this protocol stack.
-- implement simple tcp server program and tcp client program.
+- set up APIs to utilise this protocol stack.
+- implement simple tcp server program and tcp client program as an example.
