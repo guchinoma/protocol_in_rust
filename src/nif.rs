@@ -73,6 +73,7 @@ pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4V6Addr) {
 }
 
 pub fn nif_init(addr: V4V6Addr) -> Vec<Nif> {
+    println!("init nif");
     let mut nif_list = nif_loop_init();
     nif_tap_init(&mut nif_list, addr);
     nif_list
