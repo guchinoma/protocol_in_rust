@@ -55,10 +55,10 @@ pub fn nif_loop_init() -> Vec<Nif> {
 pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4V6Addr) {
     let mut f = OpenOptions::new().open(0).expect("error in open tap");
     match a {
-        V4_V6_Addr::V4(_, _, _, _) => {
+        V4V6Addr::V4(_, _, _, _) => {
             nlist.push(Nif::new(a, V4V6Addr::None, 0, CFD::Fname(f)));
         }
-        V4_V6_Addr::V6(_, _, _, _, _, _, _, _) => {
+        V4V6Addr::V6(_, _, _, _, _, _, _, _) => {
             nlist.push(Nif::new(V4V6Addr::None, a, 0, CFD::Fname(f)));
         }
         _ => {
@@ -72,7 +72,7 @@ pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4V6Addr) {
     );
 }
 
-pub fn nif_init(addr: V4_V6_Addr) -> Vec<Nif> {
+pub fn nif_init(addr: V4V6Addr) -> Vec<Nif> {
     let mut nif_list = nif_loop_init();
     nif_tap_init(&mut nif_list, addr);
     nif_list
@@ -96,7 +96,7 @@ mod tests {
             0,
             CFD::None,
         ));
-        let a = nif_init(V4_V6_Addr::V4(192, 168, 100, 5));
+        let a = nif_init(V4V6Addr::V4(192, 168, 100, 5));
         //assert!(a == ans);
     }
 }
