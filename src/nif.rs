@@ -1,27 +1,27 @@
 use std::fs::File;
 use utuntap::tap::OpenOptions;
 
-enum CFD {
+pub enum CFD {
     Fname(File),
     None,
 }
 
 #[derive(Debug, Clone)]
-enum V4_V6_Addr {
+pub enum V4V6Addr {
     V4(u8, u8, u8, u8),
     V6(u8, u8, u8, u8, u8, u8, u8, u8),
     None,
 }
 
 pub struct Nif {
-    pub addr_v4: V4_V6_Addr,
-    pub addr_v6: V4_V6_Addr,
+    pub addr_v4: V4V6Addr,
+    pub addr_v6: V4V6Addr,
     pub flag: u8,
     pub fd: CFD,
 }
 
 impl Nif {
-    pub fn new(v4: V4_V6_Addr, v6: V4_V6_Addr, f: u8, d: CFD) -> Self {
+    pub fn new(v4: V4V6Addr, v6: V4V6Addr, f: u8, d: CFD) -> Self {
         Self {
             addr_v4: v4,
             addr_v6: v6,
@@ -42,8 +42,8 @@ impl Nif {
 pub fn nif_loop_init() -> Vec<Nif> {
     let mut v: Vec<Nif> = vec![];
     v.push(Nif::new(
-        V4_V6_Addr::V4(127, 0, 0, 1),
-        V4_V6_Addr::V6(0, 0, 0, 0, 0, 0, 0, 1),
+        V4V6Addr::V4(127, 0, 0, 1),
+        V4V6Addr::V6(0, 0, 0, 0, 0, 0, 0, 1),
         0,
         CFD::None,
     ));
@@ -52,14 +52,14 @@ pub fn nif_loop_init() -> Vec<Nif> {
 
 // setup tap0 as gate of network.
 
-pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4_V6_Addr) {
+pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4V6Addr) {
     let mut f = OpenOptions::new().open(0).expect("error in open tap");
     match a {
         V4_V6_Addr::V4(_, _, _, _) => {
-            nlist.push(Nif::new(a, V4_V6_Addr::None, 0, CFD::Fname(f)));
+            nlist.push(Nif::new(a, V4V6Addr::None, 0, CFD::Fname(f)));
         }
         V4_V6_Addr::V6(_, _, _, _, _, _, _, _) => {
-            nlist.push(Nif::new(V4_V6_Addr::None, a, 0, CFD::Fname(f)));
+            nlist.push(Nif::new(V4V6Addr::None, a, 0, CFD::Fname(f)));
         }
         _ => {
             println!("error in tap init");
@@ -85,14 +85,14 @@ mod tests {
     fn t1() {
         let mut ans: Vec<Nif> = vec![];
         ans.push(Nif::new(
-            V4_V6_Addr::V4(127, 0, 0, 1),
-            V4_V6_Addr::V6(0, 0, 0, 0, 0, 0, 0, 1),
+            V4V6Addr::V4(127, 0, 0, 1),
+            V4V6Addr::V6(0, 0, 0, 0, 0, 0, 0, 1),
             0,
             CFD::None,
         ));
         ans.push(Nif::new(
-            V4_V6_Addr::V4(192, 168, 100, 5),
-            V4_V6_Addr::None,
+            V4V6Addr::V4(192, 168, 100, 5),
+            V4V6Addr::None,
             0,
             CFD::None,
         ));
