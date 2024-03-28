@@ -19,7 +19,7 @@ echo "If you do, say yes."
 read -p ":" INPUT_STR
 
 if [$INPUT_STR != "yes"]; then 
-  exit 0
+  exit 1
 fi
 
 echo "Go on. r u sure?"
@@ -29,7 +29,7 @@ echo "続きます。承知していますか？"
 read -p ":" INPUT_STR
 
 if [$INPUT_STR != "yes"]; then 
-  exit 0
+  exit 1
 fi
 
 sudo ip tuntap add mode tap user $USER name tap0
