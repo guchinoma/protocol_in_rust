@@ -1,7 +1,8 @@
+use std::fs::File;
 use utuntap::tap::OpenOptions;
 
 enum CFD {
-    Fname(OpenOptions),
+    Fname(File),
     None,
 }
 
