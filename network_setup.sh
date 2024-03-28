@@ -14,8 +14,7 @@ echo "確認しているならyと打つ"
 echo "Caution! Do not run this sh in non-virtual environment."
 echo "If you run this, you need to fix network setting of your laptop, which is troublesome."
 echo "Do you recognize your env is now virtual environment?"
-echo "If you do, say"
-echo "y"
+echo "If you do, say \"y\""
 
 read -p ":" INPUT_STR
 
