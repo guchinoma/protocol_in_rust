@@ -1,3 +1,3 @@
-pub trait Info{
-    fn info(&self){};
+pub trait Info {
+    fn info(&self) {}
 }

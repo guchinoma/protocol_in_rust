@@ -1,8 +1,8 @@
-use cloneable_file::CloneableFile;
+use utuntap::tap::OpenOptions;
 
 #[derive(Debug, Clone)]
 enum CFD {
-    Fname(CloneableFile),
+    Fname(OpenOptions),
     None,
 }
 
@@ -22,17 +22,12 @@ pub struct Nif {
 }
 
 impl Nif {
-    fn new(v4: V4_V6_Addr, v6: V4_V6_Addr, f: u8, d: CFD) -> Self {
-        let v4_2 = v4.clone();
-        let v6_2 = v6.clone();
-        let f2 = f.clone();
-        let d2 = d.clone();
-
+    pub fn new(v4: V4_V6_Addr, v6: V4_V6_Addr, f: u8, d: CFD) -> Self {
         Self {
-            addr_v4: v4_2,
-            addr_v6: v6_2,
-            flag: f2,
-            fd: d2,
+            addr_v4: v4,
+            addr_v6: v6,
+            flag: f,
+            fd: d,
         }
     }
 }
@@ -57,16 +52,16 @@ pub fn nif_loop_init() -> Vec<Nif> {
 }
 
 pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4_V6_Addr) {
-    let mut f = CloneableFile::open("de/net/tun").expect("cannot open tap");
+    let mut f = OpenOptions::new().open(0).expect("error in open tap");
     match a {
-        V4_V6_Addr::V4(o, p, q, r) => {
+        V4_V6_Addr::V4(_, _, _, _) => {
             nlist.push(Nif::new(a, V4_V6_Addr::None, 0, CFD::Fname(f)));
         }
-        V4_V6_Addr::V6(o, p, q, r, s, t, u, v) => {
+        V4_V6_Addr::V6(_, _, _, _, _, _, _, _) => {
             nlist.push(Nif::new(V4_V6_Addr::None, a, 0, CFD::Fname(f)));
         }
         _ => {
-            println!("error");
+            println!("error in tap init");
         }
     }
 }
