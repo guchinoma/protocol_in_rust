@@ -6,7 +6,9 @@ thread programming and mutex control is needed to do this project,
 which is important in system engineering.
 
 # Prerequisite?
-- Ubuntu 20.04(Will test in Ubuntu 22.04)
+- OS
+-- Ubuntu 20.04
+-- Ubuntu 22.04
 
 # Reference to do this project?
 - [lwIP](http://savannah.nongnu.org/projects/lwip/)

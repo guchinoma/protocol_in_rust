@@ -63,6 +63,7 @@ pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4_V6_Addr) {
             println!("error in tap init");
         }
     }
+    println!("tap addr is {:?}", a);
 }
 
 pub fn nif_init(addr: V4_V6_Addr) -> Vec<Nif> {
