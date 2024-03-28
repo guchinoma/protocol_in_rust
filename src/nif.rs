@@ -13,7 +13,7 @@ enum V4_V6_Addr {
     None,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct Nif {
     pub addr_v4: V4_V6_Addr,
     pub addr_v6: V4_V6_Addr,

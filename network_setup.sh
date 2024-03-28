@@ -6,7 +6,7 @@
 #
 #
 
-echo "注意!　仮想環境以外で動かすな"
+echo "注意! 仮想環境以外で動かすな"
 echo "仮想環境でこれ実行させると、ネットワーク設定を直す必要がある。"
 echo "仮想環境だと確認していますか？"
 echo "確認しているならyesと打つ"
@@ -18,7 +18,7 @@ echo "If you do, say yes."
 
 read -p ":" INPUT_STR
 
-if [$INPUT_STR != "yes"]; then 
+if [[$INPUT_STR != "yes"]]; then 
   exit 1
 fi
 
@@ -28,7 +28,7 @@ echo "続きます。承知していますか？"
 
 read -p ":" INPUT_STR
 
-if [$INPUT_STR != "yes"]; then 
+if [[$INPUT_STR != "yes"]]; then 
   exit 1
 fi
 
