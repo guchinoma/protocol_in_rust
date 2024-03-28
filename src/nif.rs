@@ -58,7 +58,7 @@ pub fn nif_loop_init() -> Vec<Nif> {
 }
 
 pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4_V6_Addr) {
-    let mut f = CloneableFile::open("hoooooo.txt").expect("cannot open tap");
+    let mut f = CloneableFile::open("de/net/tun").expect("cannot open tap");
     match a {
         V4_V6_Addr::V4(o, p, q, r) => {
             nlist.push(Nif::new(a, V4_V6_Addr::None, 0, CFD::Fname(f)));
