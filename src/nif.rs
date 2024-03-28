@@ -1,5 +1,4 @@
 use cloneable_file::CloneableFile;
-use std::fs::File;
 
 #[derive(Debug, Clone)]
 enum CFD {
