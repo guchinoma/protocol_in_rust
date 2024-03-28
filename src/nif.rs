@@ -50,6 +50,8 @@ pub fn nif_loop_init() -> Vec<Nif> {
     v
 }
 
+// setup tap0 as gate of network.
+
 pub fn nif_tap_init(nlist: &mut Vec<Nif>, a: V4_V6_Addr) {
     let mut f = OpenOptions::new().open(0).expect("error in open tap");
     match a {
