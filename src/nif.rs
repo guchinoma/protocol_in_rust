@@ -1,6 +1,6 @@
 use utuntap::tap::OpenOptions;
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 enum CFD {
     Fname(OpenOptions),
     None,
