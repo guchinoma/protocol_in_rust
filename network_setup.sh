@@ -16,17 +16,17 @@ echo "If you run this, you need to fix network setting of your laptop, which is 
 echo "Do you recognize your env is now virtual environment?"
 echo "If you do, say yes."
 
-read -p ":" INPUT_STR
+read -p INPUT_STR
 
-if [[$INPUT_STR != "yes"]]; then 
+if ["$INPUT_STR" != "yes"]; then 
   exit 1
 fi
 
-echo "Go on. r u sure?"
-echo "続きます。承知していますか？"
+echo "Go on. r u sure? If so. say yes"
+echo "続きます。承知していますか？ よければyes"
 
 
-read -p ":" INPUT_STR
+read -p INPUT_STR
 
 if [[$INPUT_STR != "yes"]]; then 
   exit 1

@@ -1,6 +1,5 @@
 use utuntap::tap::OpenOptions;
 
-#[derive(Debug)]
 enum CFD {
     Fname(OpenOptions),
     None,
@@ -13,7 +12,6 @@ enum V4_V6_Addr {
     None,
 }
 
-#[derive(Debug)]
 pub struct Nif {
     pub addr_v4: V4_V6_Addr,
     pub addr_v6: V4_V6_Addr,
@@ -91,7 +89,6 @@ mod tests {
             CFD::None,
         ));
         let a = nif_init(V4_V6_Addr::V4(192, 168, 100, 5));
-        println!("{:?}", a);
         //assert!(a == ans);
     }
 }
