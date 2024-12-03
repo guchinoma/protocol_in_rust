@@ -2,7 +2,7 @@
 implement plain user-land protocol stack in Rust.
 
 # Why protocol stack?
-thread programming and mutex control is needed to do this project,
+thread programming and mutex control are needed to do this project,
 which is important in system engineering.
 
 # Prerequisite?

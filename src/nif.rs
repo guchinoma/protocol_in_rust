@@ -31,7 +31,7 @@ impl Nif {
     }
 }
 
-//impl Info for Nif {
+//impl traits::Info for Nif {
 //fn info(&self) {
 //println!("v4 {:}", self.addr_v4);
 //println!("v6 {:}", self.addr_v6);
